@@ -33,7 +33,8 @@ public class LogIn extends javax.swing.JFrame {
         lblVisible = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("FARMACIA G & G");
+        setTitle("FARMACIA G&G - LOGIN");
+        setResizable(false);
 
         jDesktopPane1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -193,22 +194,30 @@ public class LogIn extends javax.swing.JFrame {
         String sql = "select * from empleado";//sentencia de ejecucion de base de datos
         String usuarioIngresado = LogUsEmp2.getText();
         String claveIngresada = LogClaEmp2.getText();
+        
 
         try{
             st = conexion.createStatement();//se inicializa la sentencia en la base de datos
             ResultSet rs = st.executeQuery(sql);//se le asigna a un resultado lo que traiga de la ejecucion de sql
+            boolean encontrado = false;
+            
             while(rs.next()){   //rs recibe un array y lo recorre con next             
                 if (usuarioIngresado.equals(rs.getString(2)) && claveIngresada.equals(rs.getString(3))) {
                     // En caso que los datos esten correctos
-                    Gestor redic9 = new Gestor();
-                    redic9.setVisible(true);
-                    this.dispose();
+                    encontrado = true;
                     break;
-                } else {
-                    // Si los datos no coinciden con los registros muestra este mensaje
-                    JOptionPane.showMessageDialog(this, "Usuario o clave incorrectos. Por favor, inténtelo de nuevo.");
-                }
-                
+                } 
+            }
+            
+            if(encontrado){
+                Gestor redic9 = new Gestor();
+                redic9.setVisible(true);
+                this.dispose();
+            }else {
+                // Si los datos no coinciden con los registros muestra este mensaje
+                JOptionPane.showMessageDialog(this, "Usuario o clave incorrectos.\nPor favor, inténtelo de nuevo.");
+                LogUsEmp2.setText("");
+                LogClaEmp2.setText("");
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(this, "Error: "+e.toString());
@@ -232,7 +241,7 @@ public class LogIn extends javax.swing.JFrame {
     private void lblVisibleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVisibleMouseClicked
         lblOculto.setVisible(true);
         lblVisible.setVisible(false);
-        LogClaEmp2.setEchoChar('P');
+        LogClaEmp2.setEchoChar('*');
     }//GEN-LAST:event_lblVisibleMouseClicked
 
     
