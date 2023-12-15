@@ -14,6 +14,7 @@ public class Registros extends javax.swing.JFrame {
 
     public Registros() {
         initComponents();
+        this.setTitle("FARMACIA G&G - REGISTRO DE EMPLEADOS");
         setLocationRelativeTo(null);
     }
 

@@ -1,7 +1,6 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.Color;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,7 +10,9 @@ public class LogIn extends javax.swing.JFrame {
     
     public LogIn() {
         initComponents();
+        LogUsEmp2.requestFocus();
         setLocationRelativeTo(null);
+        this.setTitle("FARMACIA G&G - LOGIN");
         lblVisible.setVisible(false);
     }
 
@@ -50,10 +51,14 @@ public class LogIn extends javax.swing.JFrame {
         jLabel19.setToolTipText("");
 
         LogUsEmp2.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        LogUsEmp2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         LogUsEmp2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LogUsEmp2.setMargin(new java.awt.Insets(2, 200, 2, 2));
+        LogUsEmp2.setMaximumSize(new java.awt.Dimension(32, 29));
 
         LogClaEmp2.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
         LogClaEmp2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LogClaEmp2.setMargin(new java.awt.Insets(2, 20, 2, 6));
 
         BLogGest2.setBackground(new java.awt.Color(153, 177, 218));
         BLogGest2.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
@@ -153,7 +158,7 @@ public class LogIn extends javax.swing.JFrame {
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LogUsEmp2)
+                    .addComponent(LogUsEmp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(55, 55, 55)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -243,7 +248,6 @@ public class LogIn extends javax.swing.JFrame {
         lblVisible.setVisible(false);
         LogClaEmp2.setEchoChar('*');
     }//GEN-LAST:event_lblVisibleMouseClicked
-
     
     public static void main(String args[]) {
         
